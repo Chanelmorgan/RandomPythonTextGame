@@ -1,8 +1,10 @@
-from Character import Character 
+from Character import Hero, Enemy 
+from Weapon import short_bow, iron_sword 
 
 # Creating the characters for the game 
-hero = Character(name="Hero", health=100, damage=5) 
-enemy = Character(name="Enemy", health=100, damage=3) 
+hero = Hero(name="Hero", health=100) 
+hero.equip(iron_sword)
+enemy = Enemy(name="Enemy", health=100, weapon=short_bow) 
 
 # Main game loop 
 while True: 
@@ -11,6 +13,7 @@ while True:
 
     print(f"Health of {hero.name}: {hero.health}")
     print(f"Health of {enemy.name}: {enemy.health}")
+
 
     input()
 
