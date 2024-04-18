@@ -9,3 +9,4 @@ class Character:
 def attack(self, target) -> None:
     target.hp -= self.damage 
     target.hp = max(target.hp, 0)
+    
