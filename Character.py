@@ -1,12 +1,13 @@
+from Weapon import Weapon
+
 class Character: 
 
-    def __init__(self, name: str, health: int, damage: int):
+    def __init__(self, name: str, health: int):
         self.name = name
         self.health = health
         self.health_max = health
-        self.damage = damage 
+        self.weapon = fists
 
 def attack(self, target) -> None:
-    target.hp -= self.damage 
-    target.hp = max(target.hp, 0)
-    
+    target.health -= self.weapon.damage
+    target.health = max(target.health, 0)
