@@ -1,3 +1,4 @@
+import os
 from Character import Hero, Enemy 
 from Weapon import short_bow, iron_sword 
 
@@ -8,6 +9,7 @@ enemy = Enemy(name="Enemy", health=100, weapon=short_bow)
 
 # Main game loop 
 while True: 
+    os.system("cls")
     hero.attack(enemy)
     enemy.attack(hero)
 
