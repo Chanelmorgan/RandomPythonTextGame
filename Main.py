@@ -1,13 +1,14 @@
+# ------------ imports ------------
 import os
 from Character import Hero, Enemy 
 from Weapon import short_bow, iron_sword 
 
-# Creating the characters for the game 
+# ------------ object creation ------------
 hero = Hero(name="Hero", health=100) 
 hero.equip(iron_sword)
 enemy = Enemy(name="Enemy", health=100, weapon=short_bow) 
 
-# Main game loop 
+# ------------ Main game loop ------------ 
 while True: 
     os.system("clear")
     hero.attack(enemy)
