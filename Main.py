@@ -9,7 +9,7 @@ enemy = Enemy(name="Enemy", health=100, weapon=short_bow)
 
 # Main game loop 
 while True: 
-    os.system("cls")
+    os.system("clear")
     hero.attack(enemy)
     enemy.attack(hero)
 

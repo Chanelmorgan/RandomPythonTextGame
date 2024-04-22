@@ -1,41 +1,56 @@
-from Weapon import Weapon
-from Health_bar import HealthBar 
+# ------------ imports ------------
+from Weapon import fists
+from Health_bar import HealthBar
 
-class Character: 
 
-    def __init__(self, name: str, health: int):
+# ------------ parent class setup ------------
+class Character:
+    def __init__(self,
+                 name: str,
+                 health: int,
+                 ) -> None:
         self.name = name
         self.health = health
         self.health_max = health
-        self.weapon = Weapon.fists
 
-def attack(self, target) -> None:
-    target.health -= self.weapon.damage
-    target.health = max(target.health, 0)
-    target.health_bar.update()
-    print(f"{self.name} dealt { self.weapon.damage } damage to {target.name} with {self.weapon.name}")
+        self.weapon = fists
+
+    def attack(self, target) -> None:
+        target.health -= self.weapon.damage
+        target.health = max(target.health, 0)
+        target.health_bar.update()
+        print(f"{self.name} dealt {self.weapon.damage} damage to "
+              f"{target.name} with {self.weapon.name}")
 
 
-# Creating a sub class Hero 
-class Hero(Character): 
-    def __init__(self, name:str, health:int) -> None:
-        super().__init__(name=name, health=health) 
+# ------------ subclass setup ------------
+class Hero(Character):
+    def __init__(self,
+                 name: str,
+                 health: int
+                 ) -> None:
+        super().__init__(name=name, health=health)
+
         self.default_weapon = self.weapon
         self.health_bar = HealthBar(self, color="green")
-    
+
     def equip(self, weapon) -> None:
         self.weapon = weapon
-        print(f"{self.name} equipped an {self.weapon.name}!")
-    
-    def drop(self) -> None: 
+        print(f"{self.name} equipped a(n) {self.weapon.name}!")
+
+    def drop(self) -> None:
         print(f"{self.name} dropped the {self.weapon.name}!")
         self.weapon = self.default_weapon
-      
 
 
-# Creating a sub class Enemy
-class Enemy(Character): 
-    def __init__(self, name:str, health:int, weapon) -> None:
+# ------------ subclass setup ------------
+class Enemy(Character):
+    def __init__(self,
+                 name: str,
+                 health: int,
+                 weapon,
+                 ) -> None:
         super().__init__(name=name, health=health)
+        self.weapon = weapon
+
         self.health_bar = HealthBar(self, color="red")
-    
