@@ -22,7 +22,6 @@ class Character:
         print(f"{self.name} dealt {self.weapon.damage} damage to "
               f"{target.name} with {self.weapon.name}")
 
-
 # ------------ subclass setup ------------
 class Hero(Character):
     def __init__(self,
